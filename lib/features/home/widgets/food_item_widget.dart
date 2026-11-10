@@ -11,6 +11,7 @@ class FoodItemWidget extends StatelessWidget {
   final double rate;
   final String time;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
 
   const FoodItemWidget({
     super.key,
@@ -19,12 +20,14 @@ class FoodItemWidget extends StatelessWidget {
     required this.rate,
     required this.time,
     this.onTap,
+    this.onLongPress,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: SizedBox(
         child: Container(
           padding: EdgeInsets.all(8.sp),

@@ -17,6 +17,7 @@ class CustomEditText extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
+  final int maxLines;
 
   const CustomEditText({
     super.key,
@@ -33,6 +34,7 @@ class CustomEditText extends StatelessWidget {
     this.keyboardType,
     this.validator,
     this.onChanged,
+    this.maxLines = 1,
   });
 
   OutlineInputBorder _border(Color color) => OutlineInputBorder(
@@ -48,6 +50,7 @@ class CustomEditText extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        maxLines: obscureText ? 1 : maxLines,
         keyboardType: keyboardType,
         validator: validator,
         onChanged: onChanged,
